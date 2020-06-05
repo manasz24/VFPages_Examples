@@ -1,6 +1,6 @@
 <apex:page controller="MyController" tabStyle="Account">
     <apex:form>
-        <apex:pageMessages/>
+        <apex:pageMessage severity="Error" summary="First Error message on page" strength="1"/>
         <apex:pageBlock title="Hello {!$User.FirstName}!">
             You are viewing the {!account.name} account. <p/>
             Change Account Name: <p/> 

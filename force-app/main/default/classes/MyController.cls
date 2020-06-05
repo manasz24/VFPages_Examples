@@ -15,9 +15,17 @@ public class MyController {
     }
 
     public Account getAccount() {
-        if(account == null) 
+        try{
             account = [select id, name, site from Account 
                        where id = :ApexPages.currentPage().getParameters().get('id')];
-        return account; 
+        return account;
+    }
+    catch(exception ee){
+        System.debug('The following exception has occurred: ' + ee.getMessage());
+        //ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, 'Second Error Message added from apex'));
+        return null;
+    }
+
+        
     } 
 }
